@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang='en-US'>
+<head>
+  <title>Todo List</title>
+  <meta charset='utf-8'>
+  <link href='/stylesheets/style.css' rel='stylesheet'>
+  <script src='/javascripts/handlebars.js'></script>
+  <script src='/javascripts/todo_list.js'></script>
+</head>
+<body>
+  <div class='column'>
+    <input type='checkbox' name='nav-toggle' id='nav-toggle'>
+    <label for='nav-toggle'></label>
+
+    <nav id='lists'>
+      <section class='all-lists all'>
+        <header id='all-todos' class='list active'>
+          <a href='#'>
+            <h2 class='list-name'>All Todos</h2>
+            <p class='count total-count'></p>
+          </a>
+        </header>
+        <ul id='all-lists-list'>
+        </ul>
+      </section>
+
+      <section class='completed-lists completed'>
+        <header id='completed-todos' class='list'>
+          <a href='#'>
+            <h2 class='list-name'>Completed</h2>
+            <p class='count completed-count'></p>
+          </a>
+        </header>
+        <ul id='completed-lists-list'>
+        </ul>
+      </section>
+    </nav><!--
+
+
+ --><main>
+      <header>
+        <h1 id='active-list-name'>All Todos</h1>
+        <p class='count total-count' id='active-list-count'></p>
+      </header>
+
+      <section class='todos'>
+        <h2 class='edit-toggle'>
+          <input type='checkbox' name='new-todo-button' id='new-todo-button'>
+          <label for='new-todo-button'>Add new to do</label>
+        </h2>
+
+        <ul id='todos-list'>
+        </ul>
+
+        <aside class='modal' id='modal'>
+          <form action='#' method='post' id='todo-form'>
+            <fieldset>
+              <dl class='title'>
+                <dt>
+                  <label for='title'>Title</label>
+                </dt><!--
+             --><dd>
+                  <input type='text' name='title' id='title' placeholder='Item 1' minlength='3' required>
+                </dd>
+              </dl><!--
+           --><dl class='date'>
+                <dt>
+                  <label for='day'>Due Date</label>
+                </dt><!--
+             --><dd>
+                  <select name='day' id='day'>
+                    <option value='null' selected disabled>Day</option>
+                    <option value='01'>1</option>
+                    <option value='02'>2</option>
+                    <option value='03'>3</option>
+                    <option value='04'>4</option>
+                    <option value='05'>5</option>
+                    <option value='06'>6</option>
+                    <option value='07'>7</option>
+                    <option value='08'>8</option>
+                    <option value='09'>9</option>
+                    <option>10</option>
+                    <option>11</option>
+                    <option>12</option>
+                    <option>13</option>
+                    <option>14</option>
+                    <option>15</option>
+                    <option>16</option>
+                    <option>17</option>
+                    <option>18</option>
+                    <option>19</option>
+                    <option>20</option>
+                    <option>21</option>
+                    <option>22</option>
+                    <option>23</option>
+                    <option>24</option>
+                    <option>25</option>
+                    <option>26</option>
+                    <option>27</option>
+                    <option>28</option>
+                    <option>29</option>
+                    <option>30</option>
+                    <option>31</option>
+                  </select>
+                </dd><!--
+             --><dd>
+                  <select name='month' id='month'>
+                    <option value='null' selected disabled>Month</option>
+                    <option value='01'>January</option>
+                    <option value='02'>February</option>
+                    <option value='03'>March</option>
+                    <option value='04'>April</option>
+                    <option value='05'>May</option>
+                    <option value='06'>June</option>
+                    <option value='07'>July</option>
+                    <option value='08'>August</option>
+                    <option value='09'>September</option>
+                    <option value='10'>October</option>
+                    <option value='11'>November</option>
+                    <option value='12'>December</option>
+                  </select>
+                </dd><!--
+             --><dd>
+                  <select name='year' id='year'>
+                    <option value='null' selected disabled>Year</option>
+                    <option>2015</option>
+                    <option>2016</option>
+                    <option>2017</option>
+                    <option>2018</option>
+                    <option>2019</option>
+                    <option>2020</option>
+                  </select>
+                </dd>
+              </dl><!--
+           --><dl class='description'>
+                <dt>
+                  <label for='description'>Description</label>
+                </dt><!--
+             --><dd>
+                  <textarea name='description' id='description' rows='8' cols='40' placeholder='Description'></textarea>
+                </dd>
+              </dl><!--
+           --><div class='buttons'>
+                <button type='submit'>Save</button><!--
+             --><button type='button' class='complete' id='complete-button'>Mark As Complete</button>
+              </div>
+            </fieldset>
+          </form>
+        </aside>
+      </section>
+    </main>
+  </div>
+
+
+  <script type='text/x-handlebars-template' id='todo-template'>
+    <li class='todo' data-id='{{id}}'>
+      <input type='checkbox' name='complete-item-{{id}}' id='complete-item-{{id}}' class='complete' {{#if completed}}checked{{/if}}>
+      <label for='complete-item-{{id}}' class='todo_complete'></label>
+      <h3 class='modal'>
+        <label for='edit-toggle-{{id}}' class='todo_title'>
+          {{title}}
+          &ndash;
+          <span class='due_date todo_title'>
+            {{#if month}}
+              {{#if year}}
+                {{month}}/{{year}}
+              {{else}}
+                No Due Date
+              {{/if}}
+            {{else}}
+              No Due Date
+            {{/if}}
+          </span>
+        </label>
+      </h3>
+      <form action='/api/todos/{{id}}' method='post' class='delete'>
+        <input type='checkbox' name='delete-item-{{id}}' id='delete-item-{{id}}'>
+        <label for='delete-item-{{id}}' class='todo_delete'></label>
+      </form>
+    </li>
+  </script>
+
+
+  <script type='text/x-handlebars-template' id='list-template'>
+    <li class='list'>
+      <a href='#'>
+        <h3 class='list-name'>{{date}}</h3>
+        <p class='count'>{{count}}</p>
+      </a>
+    </li>
+  </script>
+</body>
+</html>

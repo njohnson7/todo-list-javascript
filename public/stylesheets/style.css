@@ -1,0 +1,610 @@
+@import url('whitespace_reset.css');
+html {
+  font:                 normal 400 16px Helvetica, Arial, sans-serif;
+  letter-spacing:       .81px;
+}
+body {
+  background:           #fff;
+}
+h2 {
+  font-size:            18px;
+}
+a {
+  text-decoration:      none;
+}
+.column {
+  margin:               0 auto;
+  max-width:            1200px;
+  min-height:           360px;
+  overflow:             auto;
+  position:             relative;
+}
+nav,
+main {
+  color:                #060606;
+  display:              inline-block;
+  height:               100vh;
+  padding-top:          71px;
+  vertical-align:       top;
+}
+nav {
+  background:           #464f77;
+  color:                #fff;
+  float:                left;
+  max-width:            335px;
+  overflow:             hidden;
+  padding-left:         102px;
+  padding-right:        32px;
+  position:             relative;
+  width:                27.917%;
+}
+main {
+  background:           #fff;
+  float:                left;
+  overflow:             auto;
+  padding-left:         32px;
+  padding-right:        100px;
+  position:             relative;
+  width:                72.083%;
+}
+nav h2:before {
+  background:           transparent url(../images/list_icons.png) 0 0 no-repeat;
+  content:              '';
+  display:              inline-block;
+  height:               26px;
+  margin-right:         10px;
+  vertical-align:       -5px;
+  width:                26px;
+}
+nav h2 {
+  display:              inline-block;
+  letter-spacing:       .9px;
+}
+nav li {
+  display:              block;
+  height:               40px;
+  margin:               0 -32px 0 -102px;
+  padding:              4px 32px 0 102px;
+  position:             relative;
+  z-index:              3;
+}
+nav .active {
+  background:           #393f5f;
+}
+nav .list:hover h2,
+nav .list:hover h3,
+nav .list:hover li,
+nav .list:hover {
+  color:                #33b5e5;
+  cursor:               pointer;
+}
+h2.list-name {
+  color:                #fff;
+}
+nav header {
+  margin:               0 -32px -15px -102px;
+  padding:              10px 29px 10px 101px;
+}
+#active-list-count {
+  padding:              1px;
+  width:                25px;
+}
+#completed-todos {
+  margin-bottom:        -19px;
+}
+header .count {
+  height:               18px;
+  margin-top:           -4px;
+  padding:              1px 2px;
+  position:             relative;
+  top:                  8px;
+  width:                24px;
+  z-index:              4;
+}
+nav h3 {
+  margin-top:           9px;
+}
+nav li .count {
+  margin-top:           8px;
+  position:             relative;
+  z-index:              10;
+}
+nav h3 {
+  display:              inline-block;
+  float:                left;
+  margin-left:          35px;
+}
+.count {
+  background:           #6b7292;
+  border-radius:        9px;
+  color:                #dadbe2;
+  display:              inline-block;
+  float:                right;
+  font-size:            14px;
+  height:               18px;
+  line-height:          18px;
+  margin-top:           1px;
+  padding:              2px 5px;
+  text-align:           center;
+  width:                18px;
+}
+.all-lists header p {
+  margin-top:           -2px;
+}
+nav a {
+  color:                #b2b5c3;
+}
+nav ul {
+  margin-top:           14px;
+}
+.active a {
+  color:                #fff;
+}
+.active .count {
+  background:           #148fd5;
+  color:                #fff;
+}
+.completed-lists {
+  margin-top:           51px;
+}
+.completed-lists ul {
+  margin-top:           21px;
+}
+.completed-lists h2:before {
+  background:           transparent url('../images/list_icons.png') 0 100% no-repeat;
+  vertical-align:       -7px;
+}
+.completed-lists h3 {
+  line-height:          16px;
+  position:             relative;
+}
+.completed-lists h3:after {
+  border-bottom:        1px solid #676e8c;
+  border-top:           1px solid #8388a0;
+  content:              '';
+  left:                 0;
+  opacity:              1;
+  position:             absolute;
+  right:                0;
+  top:                  6.4px;
+}
+nav h2:hover {
+  color:                #148fd5;
+}
+main > header {
+  margin-left:          -.5px;
+  margin-top:           -1px;
+}
+h1 {
+  color:                #050505;
+  display:              inline-block;
+  font-size:            21px;
+  letter-spacing:       1.3px;
+  margin-right:         12px;
+}
+h1 + .count {
+  background:           #148fd5;
+  color:                #fff;
+  display:              inline-block;
+  float:                none;
+  padding-left:         4.5px;
+  position:             static;
+  vertical-align:       2px;
+  width:                18px;
+}
+.todos h2 {
+  color:                #148fd5;
+  font-size:            16px;
+  margin-top:           37px;
+}
+.todos h2 label:before {
+  background:           transparent url('../images/add.png') 0 0 no-repeat;
+  content:              '';
+  display:              inline-block;
+  height:               13px;
+  margin-right:         14.5px;
+  vertical-align:       -1px;
+  width:                13px;
+}
+.todos h2 label:hover {
+  font-weight:          bold;
+}
+.todos ul {
+  letter-spacing:       .5px;
+  margin-top:           12px;
+  max-width:            734px;
+}
+.todos li {
+  border-top:           1px solid #e7e7e7;
+  font-size:            16px;
+  margin-left:          -12px;
+  padding:              17px 0 13px 12px;
+  vertical-align:       middle;
+}
+.todos li:hover {
+  background:           rgba(203, 224, 245, .5);
+}
+.todos li:first-of-type input.complete + label {
+  margin-bottom:        -1px;
+}
+input[type='checkbox'] {
+  display:              none;
+}
+.complete + label {
+  background:           transparent url('../images/checkboxes.png') 0 0 no-repeat;
+  cursor:               pointer;
+  display:              inline-block;
+  height:               14px;
+  margin-right:         7px;
+  vertical-align:       -1px;
+  width:                14px;
+}
+.complete + label:hover,
+.complete:checked + label:hover {
+  background-color:     rgba(20, 143, 213, .3);
+}
+.complete:checked + label {
+  background:           transparent url('../images/checkboxes.png') 0 100% no-repeat;
+}
+.complete:checked ~ h3 label:hover {
+  color:                #148fd5;
+}
+.complete:checked ~ h3 label {
+  color:                #b3b3b3;
+  font-family:          Helvetica, Arial, sans-serif;
+
+  text-decoration-line: line-through;
+}
+.edit-toggle,
+.edit-toggle label,
+.modal,
+.modal label,
+nav label {
+  cursor:               pointer;
+}
+.todos li label {
+  font-family:          Helvetica, Arial, sans-serif;
+}
+.edit-toggle,
+.modal {
+  display:              inline-block;
+}
+.edit-toggle:hover,
+.modal:hover {
+  color:                #148fd5;
+}
+.todos aside.modal {
+  background:           rgba(0, 0, 55, .2);
+  display:              none;
+  height:               100%;
+  left:                 0;
+  position:             fixed;
+  top:                  0;
+  width:                100%;
+  z-index:              10;
+}
+aside.modal form {
+  background:           #aaa;
+  color:                #060606;
+  cursor:               auto;
+  height:               400px;
+  margin:               191px auto 0;
+  padding:              37px 39px 39px 30px;
+  width:                575px;
+}
+aside.modal,
+aside.modal dl label,
+aside.modal input,
+.modal select,
+.modal textarea,
+.modal button {
+  background:           #fff;
+  color:                #060606;
+  font:                 16px Helvetica, Arial, sans-serif;
+  letter-spacing:       .85px;
+}
+aside.modal input,
+aside.modal select,
+aside.modal option,
+aside.modal textarea {
+  border-radius:        0;
+  color:                #070707;
+}
+aside.modal input:active,
+.modal select:active,
+.modal textarea:active {
+  border:               1px solid #148fd5;
+  border-radius:        0;
+}
+aside.modal input,
+.modal select {
+  height:               36px;
+}
+aside.modal input,
+.modal select,
+.modal textarea {
+  border:               1px solid #b3b3b3;
+  padding:              6px 8px 3px;
+  width:                100%;
+}
+.modal select {
+  border-radius:        0;
+  padding:              6px 4px 3px;
+  width:                116px;
+}
+.modal select:required:invalid {
+  color:                #757575;
+}
+.modal option[value='null'][disabled] {
+  display:              none;
+}
+.modal option {
+  color:                #070707;
+}
+.modal select[name='year'] {
+  padding-left:         5px;
+}
+.title dt {
+  vertical-align:       -1px;
+}
+.date dt {
+  padding:              10px 0 10px;
+  vertical-align:       middle;
+}
+.modal textarea {
+  padding:              8px 8px 3px;
+}
+aside.modal label {
+  cursor:               auto;
+}
+.modal dl {
+  margin-bottom:        24px;
+  width:                506px;
+}
+.modal dl.title {
+  margin-bottom:        24px;
+}
+.modal dd,
+.modal dt {
+  display:              inline-block;
+}
+.modal dt {
+  width:                110px;
+}
+.modal dd {
+  width:                396px;
+}
+.modal dl.date {
+  margin-bottom:        22px;
+}
+.modal dl.description {
+  margin-bottom:        23px;
+}
+.modal dl.date dd {
+  margin:               0 12px;
+  position:             relative;
+  width:                116px;
+}
+.modal dl.date dd:first-of-type {
+  margin-left:          0;
+}
+.modal dl.date dd:last-of-type {
+  float:                right;
+  margin-right:         0;
+}
+.modal .date dd:nth-of-type(n + 2):before {
+  color:                #070707;
+  content:              '/';
+  display:              inline-block;
+  font-family:          Helvetica, Arial, sans-serif;
+  left:                 -13px;
+  position:             absolute;
+  top:                  12px;
+}
+.modal .date dd:last-of-type:before {
+  left:                 -14px;
+}
+.modal .description dt {
+  margin-top:           9px;
+  vertical-align:       top;
+}
+.modal select {
+  background:           #fff;
+}
+.modal textarea {
+  height:               144px;
+  resize:               none;
+}
+.modal .description textarea:placeholder {
+  color:                #757575;
+}
+.modal dl.description {
+  margin-bottom:        19px;
+}
+aside.modal button {
+  cursor:               pointer;
+}
+.modal .buttons {
+  margin-left:          110px;
+}
+.modal button {
+  background:           #148fd5;
+  border:               none;
+  border-radius:        4px;
+  color:                #fff;
+  font-family:          Helvetica, Arial, sans-serif;
+  font-size:            16px;
+  height:               36px;
+  line-height:          36px;
+  width:                184px;
+}
+.modal button:first-of-type {
+  letter-spacing:       1.3px;
+  margin-right:         18px;
+  padding-left:         5px;
+}
+.modal button:last-of-type {
+  letter-spacing:       .8px;
+  padding-left:         7px;
+}
+.modal button:hover {
+  background:           #fff;
+  border:               1px solid #148fd5;
+  color:                #148fd5;
+}
+.delete {
+  display:              inline-block;
+  float:                right;
+  text-align:           right;
+}
+.delete label {
+  background:           transparent url('../images/delete.png') 0 0 no-repeat;
+  cursor:               pointer;
+  display:              block;
+  height:               17px;
+  margin-top:           -1px;
+  width:                16px;
+}
+li:nth-of-type(3) .delete label {
+  margin-top:           -2px;
+}
+li:nth-of-type(n + 5) .delete label {
+  margin-top:           -2px;
+}
+li:nth-of-type(6) .delete label {
+  margin-top:           -3px;
+}
+.delete label:hover {
+  position:             relative;
+}
+.delete label:hover:before {
+  background:           rgba(255, 0, 0, .5);
+  content:              '';
+  display:              inline-block;
+  left:                 -10px;
+  padding:              25px 17px;
+  position:             relative;
+  top:                  -16px;
+}
+#nav-toggle {
+  display:              none;
+}
+label[for='nav-toggle'] {
+  background:           transparent url('../images/nav_toggle.png');
+  cursor:               pointer;
+  display:              none;
+  height:               18px;
+  left:                 0;
+  margin-left:          32px;
+  position:             absolute;
+  top:                  23px;
+  width:                23px;
+  z-index:              10;
+}
+
+@media all and (min-width: 817px) and (max-width: 1199px) {
+  .column nav {
+    padding-left:  5%;
+  }
+  .column main {
+    padding-right: 5%;
+  }
+}
+@media all and (max-width: 816px) {
+  .column nav {
+    padding-left:  1%;
+    padding-right: 1.2%;
+  }
+  .column main {
+    padding-right: 3%;
+  }
+}
+@media all and (max-width: 700px) {
+  .column main {
+    padding-right: 2%;
+  }
+}
+@media all and (max-width: 660px) {
+  label[for='nav-toggle'] {
+    display:       block;
+  }
+  .column nav {
+    display:       none;
+    padding-left:  2%;
+  }
+  #nav-toggle:checked ~ nav {
+    display:       inline-block;
+  }
+  #nav-toggle:checked + label {
+    left:          27.917%;
+  }
+  body .column main {
+    width:         100%;
+  }
+  #nav-toggle:checked ~ main {
+    width:         72.083%;
+  }
+}
+@media all and (max-width: 626px) {
+  #nav-toggle ~ nav h2:before {
+    display:       none;
+  }
+  #nav-toggle ~ nav h3 {
+    margin-left:   0;
+  }
+  #nav-toggle ~ nav {
+    padding-right: 1%;
+  }
+  #nav-toggle ~ main {
+    padding-left:  1.5%;
+    padding-right: 1.5%;
+  }
+}
+@media all and (max-width: 484px) {
+  body .column main:before {
+    background:    transparent url('../images/nav_toggle.png') 0 0 no-repeat;
+    content:       '';
+    cursor:        not-allowed;
+    display:       block;
+    height:        18px;
+    left:          32px;
+    opacity:       .25;
+    position:      absolute;
+    top:           23px;
+    width:         23px;
+  }
+  .column #nav-toggle + label[for='nav-toggle'] {
+    display:       none;
+  }
+  .column #nav-toggle:checked ~ nav {
+    display:       none;
+  }
+  body .column #nav-toggle:checked ~ main {
+    width:         100%;
+  }
+}
+@media all and (max-width: 290px) {
+  body div.column {
+    overflow:      auto;
+  }
+  body div.column main {
+    min-width:     300px;
+  }
+}
+@media all and (max-height: 610px) {
+  body .column main,
+  body .column nav {
+    min-height:    484px;
+    overflow:      hidden;
+    padding-top:   5px;
+  }
+  h1 {
+    margin-left:   35px;
+  }
+  body .column > #nav-toggle + label {
+    top:           10px;
+  }
+  body .column main:before {
+    top:           10px;
+  }
+}
